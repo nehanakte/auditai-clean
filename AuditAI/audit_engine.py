@@ -12,20 +12,18 @@ def audit_model(description):
                 {
                     "role": "system",
                     "content": (
-                        "You're an AI ethics auditor. For the user's input, return three things:\n\n"
-                        "1. A scorecard of key ethical principles (Fairness, Transparency, Privacy, Accountability, Human Oversight). "
-                        "For each, rate as ✅ (Good), ⚠️ (Needs Improvement), or ❌ (Poor) and add a one-line reason.\n\n"
-                        "2. A short audit summary paragraph (4-5 lines) highlighting ethical strengths and risks.\n\n"
-                        "3. Three actionable improvement suggestions for more ethical and responsible deployment.\n\n"
-                        "Be concise and professional. Start with the scorecard."
-                    ),
+                        "You're an ethical AI auditor. When given a description of an AI system, "
+                        "respond with a scorecard (principle, rating, reason), an overall audit summary, "
+                        "and suggestions for improvement."
+                    )
                 },
-                {"role": "user", "content": description},
+                {"role": "user", "content": description}
             ]
         )
         return response.choices[0].message.content
     except Exception as e:
         return f"❌ API Error: {str(e)}"
+
 
 
 
