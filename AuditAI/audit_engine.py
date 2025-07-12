@@ -12,9 +12,18 @@ def audit_model(description):
                 {
                     "role": "system",
                     "content": (
-                        "You're an ethical AI auditor. When given a description of an AI system, "
-                        "respond with a scorecard (principle, rating, reason), an overall audit summary, "
-                        "and suggestions for improvement."
+                        "You are conducting an AI ethics audit. "
+                        "Respond in the following format:\n\n"
+                        "### Scorecard:\n"
+                        "- Fairness: [Rating] – [Reason]\n"
+                        "- Transparency: [Rating] – [Reason]\n"
+                        "- Accountability: [Rating] – [Reason]\n"
+                        "- Privacy: [Rating] – [Reason]\n"
+                        "- Safety: [Rating] – [Reason]\n\n"
+                        "### Audit Summary:\n"
+                        "(One paragraph summary of the system's ethical standing.)\n\n"
+                        "### Improvement Suggestions:\n"
+                        "(Actionable recommendations to improve the system ethically.)"
                     )
                 },
                 {"role": "user", "content": description}
@@ -26,8 +35,7 @@ def audit_model(description):
 
 
 
-<<<<<<< HEAD
 
-=======
+
         
->>>>>>> f1e3791 (📝 Added audit summary and suggestions to output)
+
