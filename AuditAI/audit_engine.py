@@ -11,10 +11,11 @@ def audit_model(description):
         response = client.chat.completions.create(
             model="llama3-8b-8192",
             messages=[
-                {"role": "system", "content": "You are an expert in AI ethics and audit AI systems."},
                 {"role": "user", "content": description}
             ]
         )
-        return response.choices[0].message.content
+        reply = response.choices[0].message.content
+        return f"📝 Let’s take a quick look at the scorecard:\n\n{reply}"
     except Exception as e:
         return f"❌ API Error: {str(e)}"
+
