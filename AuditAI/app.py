@@ -34,5 +34,8 @@ if st.button("🔍 Run Audit"):
                 st.error("Error formatting response.")
                 st.code(result)
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f1e3791 (📝 Added audit summary and suggestions to output)
