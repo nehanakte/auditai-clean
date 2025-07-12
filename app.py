@@ -1,10 +1,6 @@
 import streamlit as st
 from audit_engine import audit_model
 
-
-st.write("API KEY FOUND:", "API_KEY" in st.secrets)
-
-
 st.set_page_config(page_title="AuditAI – Ethics Scorecard", layout="centered")
 
 st.title("🔍 AuditAI – AI Ethics & Transparency Scorecard")
