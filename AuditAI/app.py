@@ -1,20 +1,21 @@
 import streamlit as st
 from audit_engine import audit_model
 
-st.set_page_config(page_title="AuditAI Scorecard", layout="centered")
-st.title("🤖 AuditAI – AI Ethics Scorecard")
+st.set_page_config(page_title="AuditAI – AI Ethics Scorecard", layout="centered")
 
-st.markdown(
-    "Let's take a quick look at the scorecard evaluating your AI system on ethical principles."
-)
+st.title("🧾 AuditAI – Ethics & Transparency Scorecard")
+st.markdown("Let's take a quick look at the AI system's ethical performance...")
 
-description = st.text_area("📝 Describe the AI use case (e.g., facial recognition in public surveillance):")
+# Input Section
+description = st.text_area("🔍 Describe the AI use case to audit:", height=200, placeholder="e.g. AI for predicting student dropout in public schools")
 
-if st.button("🔍 Run Audit"):
-    if description:
-        result = audit_model(description)
-        st.subheader("📊 Scorecard")
-        st.markdown(result)
+if st.button("Run Audit"):
+    if not description.strip():
+        st.warning("Please enter a description of the AI system.")
     else:
-        st.warning("Please enter a use case description.")
+        with st.spinner("Running ethical audit..."):
+            result = audit_model(description)
+        st.markdown("### 📊 Scorecard & Summary")
+        st.markdown(result)
+
 
